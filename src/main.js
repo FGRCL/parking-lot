@@ -1,5 +1,5 @@
 import { meet } from '@googleworkspace/meet-addons/meet.addons';
-import config from './config';
+import { config } from './config';
 
 export async function setUpAddon() {
 	const session = await meet.addon.createAddonSession({
