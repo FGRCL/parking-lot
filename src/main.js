@@ -1,6 +1,6 @@
 import { meet } from '@googleworkspace/meet-addons/meet.addons';
 
-config = {
+const config = {
 	CLOUD_PROJECT_NUMBER: "",
 	MAIN_STAGE_URL: "",
 }
