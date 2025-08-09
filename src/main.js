@@ -1,9 +1,5 @@
 import { meet } from '@googleworkspace/meet-addons/meet.addons';
-
-const config = {
-	CLOUD_PROJECT_NUMBER: "",
-	MAIN_STAGE_URL: "",
-}
+import config from './config';
 
 export async function setUpAddon() {
 	const session = await meet.addon.createAddonSession({
