@@ -10,7 +10,7 @@ offline = false
 frozen = false              
 locked = false              
 minify = "on_release"
-no_sri = false
+no_sri = true 
 
 [serve]
 open = true
