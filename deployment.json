@@ -1,0 +1,19 @@
+{
+  "addOns": {
+    "common": {
+      "name": "Parking Lot",
+      "logoUrl": "https://fgrcl.github.io/parking-lot/logo.svg"
+    },
+    "meet": {
+      "web": {
+        "sidePanelUri": "https://fgrcl.github.io/parking-lot/SidePanel.html",
+        "addOnOrigins": [
+          "fgrcl.github.io"
+        ],
+        "darkModeLogoUrl": "https://fgrcl.github.io/parking-lot/logo.svg",
+        "logoUrl": "https://fgrcl.github.io/parking-lot/logo.svg",
+        "supportsScreenSharing": false
+      }
+    }
+  }
+}
