@@ -8,7 +8,7 @@
       "web": {
         "sidePanelUri": "https://fgrcl.github.io/parking-lot/SidePanel.html",
         "addOnOrigins": [
-          "fgrcl.github.io"
+          "https://fgrcl.github.io"
         ],
         "darkModeLogoUrl": "https://fgrcl.github.io/parking-lot/logo.svg",
         "logoUrl": "https://fgrcl.github.io/parking-lot/logo.svg",
