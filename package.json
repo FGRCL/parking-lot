@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "make build"
+    "build": "npx webpack"
   },
   "dependencies": {
     "@googleworkspace/meet-addons": "^1.2.0"

@@ -10,7 +10,7 @@ export async function setUpAddon() {
 		.getElementById('start-activity')
 		.addEventListener('click', async () => {
 			await sidePanelClient.startActivity({
-				mainStageUrl: config.MAIN_STAGE_URL
+				// mainStageUrl: config.MAIN_STAGE_URL
 			});
 		});
 }
