@@ -5,6 +5,5 @@ module.exports = {
 	output: {
 		library: 'parkinglot',
 		path: path.resolve(__dirname, 'docs'),
-		filename: 'parkinglot.js',
 	},
 };
