@@ -1,5 +1,5 @@
 [build]
-target = "index.html"       # The index HTML file to drive the bundling process.
+target = "SidePanel.html"       # The index HTML file to drive the bundling process.
 html_output = "SidePanel.html"  # The name of the output HTML file.
 release = true # Build in release mode.
 dist = "docs"               # The output dir for all final assets.
