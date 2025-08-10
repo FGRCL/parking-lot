@@ -1,21 +1,18 @@
 use yew::prelude::*;
 
+
 #[function_component]
 fn App() -> Html {
-    let counter = use_state(|| 0);
-    let onclick = {
-        let counter = counter.clone();
-        move |_| {
-            let value = *counter + 1;
-            counter.set(value);
-        }
+    let list = use_state(|| vec!["talk about cookies", "weekend plans", "rustlang"]);
 
-    };
+    let videos_html = list.iter().map(|l| html!{
+        <li>{format!("{}", l)}</li>
+    }).collect::<Html>();
 
     html! {
         <div>
-            <button {onclick}> {"+1"} </button>
-            <p>{*counter}</p>
+            <ul>{videos_html}</ul>
+            <input type="text"/>
         </div>
     }
 }
