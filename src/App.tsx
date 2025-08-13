@@ -3,8 +3,9 @@ import { initializeState } from './state'
 
 import styles from './App.module.css';
 
-const App: Component = async () => {
-  const [state, addItem] = await initializeState();
+const [state, addItem] = await initializeState();
+
+const App: Component = () => {
   const list = () => state().list;
 
   console.log("render", list())
