@@ -15,7 +15,8 @@ export async function initializeState() {
   });
 
   const sidePanelClient = await session.createSidePanelClient();
-  let handleUrl = await sidePanelClient.getActivityStartingState() as AutomergeUrl;
+  const startingState = await sidePanelClient.getActivityStartingState();
+  let handleUrl = startingState.additionalData as AutomergeUrl;
   const repo = new Repo({
     storage: new IndexedDBStorageAdapter("parking-lot"),
     network: [
