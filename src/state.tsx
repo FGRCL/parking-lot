@@ -2,8 +2,8 @@ import { AutomergeUrl, BroadcastChannelNetworkAdapter, DocHandle, IndexedDBStora
 import { createSignal } from "solid-js";
 import { meet } from "@googleworkspace/meet-addons/meet.addons";
 
-const CLOUD_PROJECT_NUMBER = 'CLOUD_PROJECT_NUMBER';
-const SIDE_PANEL_URL = 'MAIN_STAGE_URL';
+const CLOUD_PROJECT_NUMBER = '378533565670';
+const SIDE_PANEL_URL = 'https://fgrcl.github.io/parking-lot/SidePanel.html';
 
 interface ParkingLot {
   list: Array<string>
