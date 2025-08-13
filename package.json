@@ -1,12 +1,23 @@
 {
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
   "scripts": {
-    "build": "npx webpack"
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.0",
+    "vite-plugin-solid": "^2.11.6"
   },
   "dependencies": {
-    "@googleworkspace/meet-addons": "^1.2.0"
-  },
-  "devDependencies": {
-    "webpack": "^5.101.0",
-    "webpack-cli": "^6.0.1"
+    "@automerge/react": "^2.2.0",
+    "@googleworkspace/meet-addons": "^1.2.0",
+    "solid-js": "^1.9.5"
   }
 }
