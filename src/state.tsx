@@ -15,7 +15,7 @@ export async function initializeState() {
   });
 
   const sidePanelClient = await session.createSidePanelClient();
-  let documentUrl = await sidePanelClient.getActivityStartingState() as AutomergeUrl;
+  let handleUrl = await sidePanelClient.getActivityStartingState() as AutomergeUrl;
   const repo = new Repo({
     storage: new IndexedDBStorageAdapter("parking-lot"),
     network: [
@@ -25,11 +25,12 @@ export async function initializeState() {
   });
 
   let handle: DocHandle<ParkingLot>;
-  if (documentUrl) {
-    handle = await repo.find(documentUrl)
+  console.log(handleUrl)
+  if (handleUrl) {
+    handle = await repo.find(handleUrl)
   } else {
     handle = repo.create<ParkingLot>();
-    documentUrl = handle.url;
+    handleUrl = handle.url;
   }
 
   handle.change((d) =>
@@ -53,7 +54,7 @@ export async function initializeState() {
 
   sidePanelClient.startActivity({
     sidePanelUrl: SIDE_PANEL_URL,
-    additionalData: documentUrl
+    additionalData: handleUrl
   });
 
   function addItem(text: string): void {
