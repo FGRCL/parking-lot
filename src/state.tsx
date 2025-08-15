@@ -13,6 +13,7 @@ interface AppState {
 export async function initializeState() {
   let handleUrl: AutomergeUrl = "" as AutomergeUrl;
   let sidePanelClient = null;
+
   if (config.enableMeets) {
 
     const session = await meet.addon.createAddonSession({

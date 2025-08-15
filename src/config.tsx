@@ -3,6 +3,6 @@ interface Config {
 }
 
 export default {
-  enableMeets: import.meta.env.ENABLE_MEETS as boolean
+  enableMeets: (import.meta.env.VITE_ENABLE_MEETS.toLowerCase() === "true")
 } as Config;
 
