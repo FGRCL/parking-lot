@@ -1,8 +1,8 @@
 interface Config {
-  enableMeets: string;
+  enableMeets: boolean;
 }
 
 export default {
-  enableMeets: process.env.ENABLE_MEETS
+  enableMeets: import.meta.env.ENABLE_MEETS as boolean
 } as Config;
 

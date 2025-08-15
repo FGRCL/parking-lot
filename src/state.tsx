@@ -1,22 +1,29 @@
 import { AutomergeUrl, BroadcastChannelNetworkAdapter, DocHandle, IndexedDBStorageAdapter, Repo, WebSocketClientAdapter } from "@automerge/react";
 import { createSignal } from "solid-js";
 import { meet } from "@googleworkspace/meet-addons/meet.addons";
+import config from "./config";
 
 const CLOUD_PROJECT_NUMBER = '378533565670';
 const SIDE_PANEL_URL = 'https://fgrcl.github.io/parking-lot/SidePanel.html';
 
-interface ParkingLot {
+interface AppState {
   list: Array<string>
 }
 
 export async function initializeState() {
-  const session = await meet.addon.createAddonSession({
-    cloudProjectNumber: CLOUD_PROJECT_NUMBER,
-  });
+  let handleUrl: AutomergeUrl = "" as AutomergeUrl;
+  let sidePanelClient = null;
+  if (config.enableMeets) {
 
-  const sidePanelClient = await session.createSidePanelClient();
-  const startingState = await sidePanelClient.getActivityStartingState();
-  let handleUrl = startingState.additionalData as AutomergeUrl;
+    const session = await meet.addon.createAddonSession({
+      cloudProjectNumber: CLOUD_PROJECT_NUMBER,
+    });
+
+    sidePanelClient = await session.createSidePanelClient();
+    const startingState = await sidePanelClient.getActivityStartingState();
+    handleUrl = startingState.additionalData as AutomergeUrl;
+  }
+
   const repo = new Repo({
     storage: new IndexedDBStorageAdapter("parking-lot"),
     network: [
@@ -25,45 +32,43 @@ export async function initializeState() {
     ]
   });
 
-  let handle: DocHandle<ParkingLot>;
-  console.log(handleUrl)
-  if (handleUrl) {
+  let handle: DocHandle<AppState>;
+  if (handleUrl ?? false) {
     handle = await repo.find(handleUrl)
   } else {
-    handle = repo.create<ParkingLot>();
+    handle = repo.create<AppState>();
     handleUrl = handle.url;
+
+    handle.change((d: AppState) =>
+      d.list = []
+    )
+
+    if (config.enableMeets) {
+      sidePanelClient?.startActivity({
+        sidePanelUrl: SIDE_PANEL_URL,
+        additionalData: handleUrl
+      });
+    }
   }
 
-  handle.change((d) =>
-    d.list = []
-  )
-
   handle.on("change", ({ doc }) => {
-    console.log("on change", doc);
     setState(doc);
   });
 
-  console.log(handle.url)
-  const [state, setState] = createSignal(handle.doc());
+  const [state, setState] = createSignal<AppState>(handle.doc());
 
-  // export function updateItem(index: int): void {
-  //   doc.change((d) => {
-  //     d.list.push(d.);
-  //
-  //   })
-  // }
-
-  sidePanelClient.startActivity({
-    sidePanelUrl: SIDE_PANEL_URL,
-    additionalData: handleUrl
-  });
+  function updateItem(index: number, start: number, end: number, insertedText: string): void {
+    handle.change((d: AppState) => {
+      d.list[index] = d.list[index].slice(0, start) + insertedText + d.list[index].slice(end);
+    })
+  }
 
   function addItem(text: string): void {
-    handle.change((d) => {
+    handle.change((d: AppState) => {
       d.list.push(text)
     });
   }
 
-  return [state, addItem];
+  return [state, addItem, updateItem];
 }
 
