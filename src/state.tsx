@@ -58,9 +58,9 @@ export async function initializeState() {
 
   const [state, setState] = createSignal<AppState>(handle.doc());
 
-  function updateItem(index: number, start: number, end: number, insertedText: string): void {
+  function updateItem(index: number, value: string): void {
     handle.change((d: AppState) => {
-      d.list[index] = d.list[index].slice(0, start) + insertedText + d.list[index].slice(end);
+      d.list[index] = value;
     })
   }
 

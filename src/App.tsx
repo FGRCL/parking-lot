@@ -32,39 +32,14 @@ const App: Component = () => {
 const ParkingLotItem = (props) => {
   let inputRef: HTMLInputElement;
 
-  function handleItemChange(index: number, event: any) {
+  function handleItemChange(index: number) {
     if (inputRef) {
-      const start = inputRef?.selectionStart;
-      const end = inputRef?.selectionEnd;
-      const data = event.data ?? "";
-
-      if (event.inputType == "deleteContentBackward") {
-        if (start === end) {
-          const deleteStart = Math.max(0, start - 1)
-          updateItem(index, deleteStart, end, "")
-          setCursorPosition(deleteStart)
-        } else {
-          updateItem(index, start, end, "")
-          setCursorPosition(start)
-        }
-      } else {
-        updateItem(index, start, end, data)
-        setCursorPosition(end + 1)
-      }
-
-      event.preventDefault();
-    }
-  }
-
-  function setCursorPosition(position: number) {
-    if (inputRef) {
-      inputRef.selectionStart = position;
-      inputRef.selectionEnd = position;
+      updateItem(index, inputRef.value)
     }
   }
 
   return (
-    < input type="text" value={props.item()} ref={inputRef} on:beforeinput={(event) => handleItemChange(props.index, event)} />
+    < input type="text" value={props.item()} ref={inputRef} on:beforeinput={() => handleItemChange(props.index)} />
   )
 }
 
