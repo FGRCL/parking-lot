@@ -1,33 +1,66 @@
-.App {
-  text-align: center;
+.header {
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0 1rem 0 1rem;
 }
 
 .logo {
-  animation: logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  width: 6rem;
+  height: 6rem;
 }
 
-.header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: flex-start;
+  gap: 20px;
+  padding: 10px 0px 10px 0px;
+  margin: 0% 10% 0% 10%;
 }
 
-.link {
-  color: #b318f0;
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input {
+  border: none;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  margin-bottom: 1px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.input:hover {
+  border-bottom: 2px solid black;
+  margin-bottom: 0px;
+}
+
+.input:focus {
+  border-bottom: 2px solid blue;
+  outline: none;
+}
+
+.itemContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.checkbox {
+  height: 1.3rem;
+  width: 1.3rem;
+  margin: 0px 0px 0px 0px;
 }
