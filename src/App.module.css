@@ -8,14 +8,14 @@
 
 .title {
   flex: 1;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   text-align: center;
 }
 
 .logo {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   justify-content: flex-start;
 }
 
