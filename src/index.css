@@ -1,11 +1,37 @@
-body {
-  margin: 0;
-  font-family: Roboto, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --blue-50: #EAF3FA;
+  --blue-100: #C4DEF2;
+  --blue-200: #9FC9EA;
+  --blue-300: #76B3E1;
+  --blue-400: #549FD9;
+  --blue-500: #2E8AD1;
+  --blue-600: #2671AB;
+  --blue-700: #1D5986;
+  --blue-800: #154060;
+  --blue-900: #0D273B;
+  --blue-950: #050E15;
+
+  --gray-0: #FFFFFF;
+  --gray-50: #F2F2F2;
+  --gray-100: #DADADA;
+  --gray-200: #C2C2C2;
+  --gray-300: #AAAAAA;
+  --gray-400: #919191;
+  --gray-500: #797979;
+  --gray-600: #616161;
+  --gray-700: #494949;
+  --gray-800: #303030;
+  --gray-900: #181818;
+  --gray-950: #000000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  background-image: linear-gradient(var(--blue-500), white 70px);
+  height: 100%;
+  background-repeat: no-repeat;
+  font-family: Roboto, Arial, sans-serif;
+  color: var(--gray-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
