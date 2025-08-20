@@ -27,7 +27,6 @@
 
 body {
   margin: 0;
-  background-image: linear-gradient(var(--blue-500), white 70px);
   height: 100%;
   background-repeat: no-repeat;
   font-family: Roboto, Arial, sans-serif;
