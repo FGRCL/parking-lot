@@ -58,15 +58,16 @@ class AppStateController {
 async function initializeControllerSingleton(): Promise<AppStateController> {
   let handleUrl: AutomergeUrl = "" as AutomergeUrl;
   let sidePanelClient = null;
+  console.log("Initializing state");
 
   if (config.enableMeets) {
-
     const session = await meet.addon.createAddonSession({
       cloudProjectNumber: CLOUD_PROJECT_NUMBER,
     });
 
     sidePanelClient = await session.createSidePanelClient();
     const startingState = await sidePanelClient.getActivityStartingState();
+    console.log(startingState);
     handleUrl = startingState.additionalData as AutomergeUrl;
   }
 
@@ -78,9 +79,11 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
     ]
   });
 
+  console.log("handle url", handleUrl);
   let handle: DocHandle<AppStateModel> | undefined = undefined;
-  if (handleUrl ?? false) {
+  if (handleUrl) {
     handle = await repo.find(handleUrl)
+    console.log("joining repo", handle)
   } else {
     handle = repo.create<AppStateModel>();
     handleUrl = handle.url;
@@ -89,7 +92,9 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
       d.list = []
     )
 
+    console.log("created repo", handle)
     if (config.enableMeets) {
+      console.log("starting panel", handle)
       sidePanelClient?.startActivity({
         sidePanelUrl: SIDE_PANEL_URL,
         additionalData: handleUrl
