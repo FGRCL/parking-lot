@@ -73,16 +73,16 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
 
   const repo = new Repo({
     network: [
-      // new BroadcastChannelNetworkAdapter(),
-      // new WebSocketClientAdapter("wss://sync.automerge.org")
+      new BroadcastChannelNetworkAdapter(),
+      new WebSocketClientAdapter("wss://sync.automerge.org")
     ]
   });
 
   console.log("handle url", handleUrl);
   let handle: DocHandle<AppStateModel> | undefined = undefined;
   if (handleUrl) {
-    console.log("will connect to:", handleUrl);
-    handle = await repo.find(handleUrl)
+    console.log("will connect to(classic):", handleUrl);
+    handle = await repo.findClassic(handleUrl)
     console.log("joined repo", handle)
   } else {
     handle = repo.create<AppStateModel>();
