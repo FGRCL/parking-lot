@@ -1,4 +1,4 @@
-import { AutomergeUrl, BroadcastChannelNetworkAdapter, DocHandle, DocumentId, IndexedDBStorageAdapter, Repo, WebSocketClientAdapter } from "@automerge/react";
+import { BroadcastChannelNetworkAdapter, DocHandle, DocumentId, Repo, WebSocketClientAdapter } from "@automerge/react";
 import { Accessor, createSignal, Setter, Signal } from "solid-js";
 import { meet } from "@googleworkspace/meet-addons/meet.addons";
 import config from "./config";
@@ -72,7 +72,6 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
   }
 
   const repo = new Repo({
-    storage: new IndexedDBStorageAdapter("parking-lot"),
     network: [
       new BroadcastChannelNetworkAdapter(),
       new WebSocketClientAdapter("wss://sync.automerge.org")

@@ -13,10 +13,11 @@
   "devDependencies": {
     "typescript": "^5.7.2",
     "vite": "^6.0.0",
-    "vite-plugin-solid": "^2.11.6"
+    "vite-plugin-solid": "^2.11.6",
+    "vite-plugin-wasm": "^3.5.0"
   },
   "dependencies": {
-    "@automerge/react": "^2.2.0",
+    "@automerge/react": "^2.3.0",
     "@googleworkspace/meet-addons": "^1.2.0",
     "solid-js": "^1.9.5"
   }
