@@ -1,4 +1,4 @@
-import { BroadcastChannelNetworkAdapter, DocHandle, DocumentId, Repo, WebSocketClientAdapter } from "@automerge/react";
+import { AutomergeUrl, BroadcastChannelNetworkAdapter, DocHandle, DocumentId, Repo, WebSocketClientAdapter } from "@automerge/react";
 import { Accessor, createSignal, Setter, Signal } from "solid-js";
 import { meet } from "@googleworkspace/meet-addons/meet.addons";
 import config from "./config";
@@ -56,7 +56,7 @@ class AppStateController {
 }
 
 async function initializeControllerSingleton(): Promise<AppStateController> {
-  let handleUrl: DocumentId = "" as DocumentId;
+  let handleUrl: AutomergeUrl = "" as AutomergeUrl;
   let sidePanelClient = null;
   console.log("Initializing state");
 
@@ -68,7 +68,7 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
     sidePanelClient = await session.createSidePanelClient();
     const startingState = await sidePanelClient.getActivityStartingState();
     console.log(startingState);
-    handleUrl = startingState.additionalData as DocumentId;
+    handleUrl = startingState.additionalData as AutomergeUrl;
   }
 
   const repo = new Repo({
@@ -86,7 +86,7 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
     console.log("joined repo", handle)
   } else {
     handle = repo.create<AppStateModel>();
-    handleUrl = handle.documentId;
+    handleUrl = handle.url;
 
     handle.change((d: AppStateModel) =>
       d.list = []
