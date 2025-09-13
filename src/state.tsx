@@ -73,8 +73,8 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
 
   const repo = new Repo({
     network: [
-      new BroadcastChannelNetworkAdapter(),
-      new WebSocketClientAdapter("wss://sync.automerge.org")
+      // new BroadcastChannelNetworkAdapter(),
+      // new WebSocketClientAdapter("wss://sync.automerge.org")
     ]
   });
 
