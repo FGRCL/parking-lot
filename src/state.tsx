@@ -82,7 +82,13 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
   let handle: DocHandle<AppStateModel> | undefined = undefined;
   if (handleUrl) {
     console.log("will connect to(progress):", handleUrl);
-    handle = repo.findWithProgress(handleUrl).handle
+    const progress = repo.findWithProgress(handleUrl);
+    const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    while (progress.state != 'ready') {
+      console.log(progress);
+      await sleep(3000);
+    }
+    handle = progress.handle
     console.log("joined repo")
   } else {
     handle = repo.create<AppStateModel>();
