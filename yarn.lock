@@ -2,55 +2,55 @@
 # yarn lockfile v1
 
 
-"@automerge/automerge-repo-network-broadcastchannel@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-broadcastchannel/-/automerge-repo-network-broadcastchannel-2.3.0.tgz#9ea9198124a3f878f435e95907b94e3a2474eaa1"
-  integrity sha512-2cOmophbdkDOh2NeDBcOu3dAld5AFhBobMpx5EKvJyhh+3tXZ91ofwG4J0DHbv09JCwVQGbnh63SSeRtKdEo6w==
+"@automerge/automerge-repo-network-broadcastchannel@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-broadcastchannel/-/automerge-repo-network-broadcastchannel-2.5.3.tgz#460933ad243fd8045f16320644db8f239bcca11e"
+  integrity sha512-V/JpOsOkPPqe+hJs7Zs8oSKO3dp2/4Qd6D+x3D1rda7OhyOmlJ1HnMLghycnhHDQG8lCP9ex3AH6MYe1ZqgCKw==
   dependencies:
-    "@automerge/automerge-repo" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
 
-"@automerge/automerge-repo-network-messagechannel@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-messagechannel/-/automerge-repo-network-messagechannel-2.3.0.tgz#c26f4b15277834cda4f4c323dedc1a766528e528"
-  integrity sha512-0fCrd1Seeruhny3IyZ5/3UPAhkO00HW+DLHNjTXUU9ZasJ83Xj44xJyA0uTs92qJZcjRL14510hKlEmknxVHgA==
+"@automerge/automerge-repo-network-messagechannel@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-messagechannel/-/automerge-repo-network-messagechannel-2.5.3.tgz#af48e121d9c07035f381f508b84d50dc9b2c95c9"
+  integrity sha512-Fow5znCjn3sECbMBzEoZZ4Ks5AxySR6qzEc+e6jTvBEE18l9MIwZn6sE+g/UVYVvqoqbRO0Imi2kGJoNH3lPnA==
   dependencies:
-    "@automerge/automerge-repo" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
     debug "^4.3.4"
     eventemitter3 "^5.0.1"
 
-"@automerge/automerge-repo-network-websocket@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-websocket/-/automerge-repo-network-websocket-2.3.0.tgz#00fd7263c651308d548cdee31df49b1ea8bff2f9"
-  integrity sha512-1NddZXFu9Ry2Pfy7p/wbvG8TcsPvv87NPhD7+aiLb8miWrk1TjHYEUbwRQPMUN2lKAcDtnbpMZbJxbwgItxFWA==
+"@automerge/automerge-repo-network-websocket@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-network-websocket/-/automerge-repo-network-websocket-2.5.3.tgz#d67df2dab16cf97b9a53b5d05ce33744ad4e77c1"
+  integrity sha512-p6K1YLo34cyGxJ6oMWqeBbWX9rGvEPGyPdX2eq8S/iWNDjYf8lbjKSOhOD8DX87uAMZN/y1XOY/RckwS8lPJbQ==
   dependencies:
-    "@automerge/automerge-repo" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
     cbor-x "^1.3.0"
     debug "^4.3.4"
     eventemitter3 "^5.0.1"
     isomorphic-ws "^5.0.0"
     ws "^8.7.0"
 
-"@automerge/automerge-repo-react-hooks@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-react-hooks/-/automerge-repo-react-hooks-2.3.0.tgz#629b2c6a2a521384dcacda9f88f34693c7fa31fc"
-  integrity sha512-Nubo9xrE673Ip+udzxhlfpdqJRMqbS9wxWKVv/5WhL5mLRPpcu+6QRbVJz1EpgDw6PSBscjNTCoLgbSPgUOQVw==
+"@automerge/automerge-repo-react-hooks@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-react-hooks/-/automerge-repo-react-hooks-2.5.3.tgz#e503f4e3213600c3fb04e8e0732e2cf26cc7cb15"
+  integrity sha512-573jhVX1LMiBf8zV0NaYT2PgsEuqHNz0RnKSzIp49+g+swgb+KtRhpdiF38tbQoDnkFsKpYGR6P+qoAVW8veaw==
   dependencies:
     "@automerge/automerge" "2.2.8 - 3"
-    "@automerge/automerge-repo" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
     eventemitter3 "^5.0.1"
     react-usestateref "^1.0.8"
 
-"@automerge/automerge-repo-storage-indexeddb@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-indexeddb/-/automerge-repo-storage-indexeddb-2.3.0.tgz#52bb2107a0de1219b6d313e05f0b47b5d833332c"
-  integrity sha512-0amBVYn9Y/73fUVPvSUQWlg6kv6BKCEPL2C4omA1Z9L7N1DHUXCKje6WuuoF9eIKoWHA/n1QFMRj88MGILXcRQ==
+"@automerge/automerge-repo-storage-indexeddb@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo-storage-indexeddb/-/automerge-repo-storage-indexeddb-2.5.3.tgz#363dc0695717e9474fc57930768c09888d3f41ac"
+  integrity sha512-i4tSzY7sC8ZqurHm4Sd9H1lFL2Don9v9yaSoq0FXi4T+4Wg8eus/mtMlUCmS5XwYQL8GX+epbplrlBaBe+fYiw==
   dependencies:
-    "@automerge/automerge-repo" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
 
-"@automerge/automerge-repo@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-2.3.0.tgz#4f6efd0ff86858ffae30c226a047cc0ce26576eb"
-  integrity sha512-nZppJl90bK0zVGtByHDvXZ1gC8HCcKnhGkJxMLrPxuFlLdoAfq7x10Tk6AT0eMfx1048kl5zRDH7DpAZD+SvMw==
+"@automerge/automerge-repo@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/automerge-repo/-/automerge-repo-2.5.3.tgz#7f1641e294540c889e12219b7a72a907a27e9128"
+  integrity sha512-5ppzsUlzCs6PY+GeFlquaYLnVnYPz/hWzedep37zjb15tqZju1ukPPkBzT7KGEhEAnA99l4vfhfqSVC+1GktJg==
   dependencies:
     "@automerge/automerge" "2.2.8 - 3"
     bs58check "^3.0.1"
@@ -66,17 +66,17 @@
   resolved "https://registry.yarnpkg.com/@automerge/automerge/-/automerge-3.1.2.tgz#57161ff5716f8c10f5a065b24c3a4885f853ba7d"
   integrity sha512-rAZRLAMrboBJGMmZXPOfYiwkmHXho6RjhUOIrlmf+Buukt/DN1oee8kHfpI3U4etetvGgqf5JaFVbydQpKT/Vg==
 
-"@automerge/react@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@automerge/react/-/react-2.3.0.tgz#2ad9080f339e656a8d2bc2163a68be80c83ddea3"
-  integrity sha512-7o5YY9o1Q1nOeyuG8Xy13aQVqBV8T+mVrafz1euhO5S58QDOLjo9Co/OqNONGpLWdvJNJGWSXI2aRPSz3p2OWg==
+"@automerge/react@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@automerge/react/-/react-2.5.3.tgz#d9b36c57f47fcbed23f49029dabd2b4ca366117e"
+  integrity sha512-ZWHRW0HeAF8jihifL99vxEmVk8Ylq22K0P36mK3w7hsspkqa4ocM7AY1f5hJgnHyL4QKEfeZxEygKtUz0wQaoA==
   dependencies:
-    "@automerge/automerge-repo" "2.3.0"
-    "@automerge/automerge-repo-network-broadcastchannel" "2.3.0"
-    "@automerge/automerge-repo-network-messagechannel" "2.3.0"
-    "@automerge/automerge-repo-network-websocket" "2.3.0"
-    "@automerge/automerge-repo-react-hooks" "2.3.0"
-    "@automerge/automerge-repo-storage-indexeddb" "2.3.0"
+    "@automerge/automerge-repo" "2.5.3"
+    "@automerge/automerge-repo-network-broadcastchannel" "2.5.3"
+    "@automerge/automerge-repo-network-messagechannel" "2.5.3"
+    "@automerge/automerge-repo-network-websocket" "2.5.3"
+    "@automerge/automerge-repo-react-hooks" "2.5.3"
+    "@automerge/automerge-repo-storage-indexeddb" "2.5.3"
     react "^18.0.0"
 
 "@babel/code-frame@^7.27.1":

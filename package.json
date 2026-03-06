@@ -17,7 +17,7 @@
     "vite-plugin-wasm": "^3.5.0"
   },
   "dependencies": {
-    "@automerge/react": "^2.3.0",
+    "@automerge/react": "^2.5.3",
     "@googleworkspace/meet-addons": "^1.2.0",
     "solid-js": "^1.9.5"
   }
