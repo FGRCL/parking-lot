@@ -2,7 +2,6 @@ import {
   AutomergeUrl,
   BroadcastChannelNetworkAdapter,
   DocHandle,
-  DocumentId,
   Repo,
   WebSocketClientAdapter,
 } from "@automerge/react";
@@ -63,7 +62,6 @@ class AppStateController {
 async function initializeControllerSingleton(): Promise<AppStateController> {
   let handleUrl: AutomergeUrl = "" as AutomergeUrl;
   let sidePanelClient = null;
-  console.log("Initializing state");
 
   if (config.enableMeets) {
     const session = await meet.addon.createAddonSession({
@@ -72,7 +70,6 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
 
     sidePanelClient = await session.createSidePanelClient();
     const startingState = await sidePanelClient.getActivityStartingState();
-    console.log(startingState);
     handleUrl = startingState.additionalData as AutomergeUrl;
   }
 
@@ -83,21 +80,16 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
     ],
   });
 
-  console.log("handle url", handleUrl);
   let handle: DocHandle<AppStateModel> | undefined = undefined;
   if (handleUrl) {
-    console.log("will connect to:", handleUrl);
     handle = await repo.find(handleUrl);
-    console.log("joined repo");
   } else {
     handle = repo.create<AppStateModel>();
     handleUrl = handle.url;
 
     handle.change((d: AppStateModel) => (d.list = []));
 
-    console.log("created repo", handle);
     if (config.enableMeets) {
-      console.log("starting panel", handle);
       sidePanelClient?.startActivity({
         sidePanelUrl: SIDE_PANEL_URL,
         additionalData: handleUrl,
