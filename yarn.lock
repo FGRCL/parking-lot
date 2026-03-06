@@ -66,7 +66,7 @@
   resolved "https://registry.yarnpkg.com/@automerge/automerge/-/automerge-3.1.2.tgz#57161ff5716f8c10f5a065b24c3a4885f853ba7d"
   integrity sha512-rAZRLAMrboBJGMmZXPOfYiwkmHXho6RjhUOIrlmf+Buukt/DN1oee8kHfpI3U4etetvGgqf5JaFVbydQpKT/Vg==
 
-"@automerge/react@^2.5.3":
+"@automerge/react@2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@automerge/react/-/react-2.5.3.tgz#d9b36c57f47fcbed23f49029dabd2b4ca366117e"
   integrity sha512-ZWHRW0HeAF8jihifL99vxEmVk8Ylq22K0P36mK3w7hsspkqa4ocM7AY1f5hJgnHyL4QKEfeZxEygKtUz0wQaoA==

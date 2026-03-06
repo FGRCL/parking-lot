@@ -1,13 +1,20 @@
-import { AutomergeUrl, BroadcastChannelNetworkAdapter, DocHandle, DocumentId, Repo, WebSocketClientAdapter } from "@automerge/react";
+import {
+  AutomergeUrl,
+  BroadcastChannelNetworkAdapter,
+  DocHandle,
+  DocumentId,
+  Repo,
+  WebSocketClientAdapter,
+} from "@automerge/react";
 import { Accessor, createSignal, Setter, Signal } from "solid-js";
 import { meet } from "@googleworkspace/meet-addons/meet.addons";
 import config from "./config";
 
-const CLOUD_PROJECT_NUMBER = '378533565670';
-const SIDE_PANEL_URL = 'https://fgrcl.github.io/parking-lot/SidePanel.html';
+const CLOUD_PROJECT_NUMBER = "378533565670";
+const SIDE_PANEL_URL = "https://fgrcl.github.io/parking-lot/SidePanel.html";
 
 export interface AppStateModel {
-  list: Array<ParkingLotItemModel>
+  list: Array<ParkingLotItemModel>;
 }
 
 export interface ParkingLotItemModel {
@@ -20,7 +27,6 @@ class AppStateController {
   private setState: Setter<AppStateModel>;
   private handle: DocHandle<AppStateModel>;
 
-
   constructor(signal: Signal<AppStateModel>, handle: DocHandle<AppStateModel>) {
     const [state, setState] = signal;
     this.state = state;
@@ -32,11 +38,10 @@ class AppStateController {
     });
   }
 
-
   public updateItem(index: number, value: string): void {
     this.handle.change((d: AppStateModel) => {
       d.list[index].text = value;
-    })
+    });
   }
 
   public addItem(text: string): void {
@@ -44,7 +49,7 @@ class AppStateController {
       d.list.push({
         text: text,
         completed: false,
-      } as ParkingLotItemModel)
+      } as ParkingLotItemModel);
     });
   }
 
@@ -74,36 +79,28 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
   const repo = new Repo({
     network: [
       new BroadcastChannelNetworkAdapter(),
-      new WebSocketClientAdapter("wss://sync.automerge.org")
-    ]
+      new WebSocketClientAdapter("wss://sync.automerge.org"),
+    ],
   });
 
   console.log("handle url", handleUrl);
   let handle: DocHandle<AppStateModel> | undefined = undefined;
   if (handleUrl) {
-    console.log("will connect to(progress):", handleUrl);
-    const progress = repo.findWithProgress(handleUrl);
-    const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-    while (progress.state != 'ready') {
-      console.log(progress);
-      await sleep(3000);
-    }
-    handle = progress.handle
-    console.log("joined repo")
+    console.log("will connect to:", handleUrl);
+    handle = await repo.find(handleUrl);
+    console.log("joined repo");
   } else {
     handle = repo.create<AppStateModel>();
     handleUrl = handle.url;
 
-    handle.change((d: AppStateModel) =>
-      d.list = []
-    )
+    handle.change((d: AppStateModel) => (d.list = []));
 
-    console.log("created repo", handle)
+    console.log("created repo", handle);
     if (config.enableMeets) {
-      console.log("starting panel", handle)
+      console.log("starting panel", handle);
       sidePanelClient?.startActivity({
         sidePanelUrl: SIDE_PANEL_URL,
-        additionalData: handleUrl
+        additionalData: handleUrl,
       });
     }
   }
@@ -112,6 +109,5 @@ async function initializeControllerSingleton(): Promise<AppStateController> {
   return new AppStateController(signal, handle);
 }
 
-const appStateController = await initializeControllerSingleton()
+const appStateController = await initializeControllerSingleton();
 export default appStateController;
-
